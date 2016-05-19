@@ -5,6 +5,9 @@ function cache($key,$value=null){
 		return unserialize(file_get_contents($key));
 	}else{
 		//存缓存
+		if (is_resource($value)) {
+			return false;
+		}
 		$str=serialize($value);
 		if(file_put_contents($key, $str)===false){
 			return false;
