@@ -16,4 +16,17 @@ function cache($key,$value=null){
 		}
 	}
 }
+
+function getUniqueContent($mixed){
+  $crlf="\r\n";
+  if (file_exists($mixed)) {
+      //做文件处理
+      return file_put_contents($mixed, implode($crlf, array_unique(explode($crlf,file_get_contents($mixed)))));
+    }elseif (is_string($mixed)) {
+      //直接处理
+      return implode($crlf, array_unique(explode($crlf, $mixed)));
+    }else{
+      return false;
+    }
+}
 ?>
