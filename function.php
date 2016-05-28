@@ -1,4 +1,9 @@
 <?php 
+/**
+ * @param  $key
+ * @param  $var
+ * @return boolean
+ */
 function cache($key,$value=null){
 	if (is_null($value)) {
 		//取缓存	
@@ -16,7 +21,10 @@ function cache($key,$value=null){
 		}
 	}
 }
-
+/**
+ * @param  $mixed
+ * @return mixed
+ */
 function getUniqueContent($mixed){
   $crlf="\r\n";
   if (file_exists($mixed)) {
